@@ -1,0 +1,22 @@
+<h1>CD Organizer</h1>
+
+<p>Edit your CD</p>
+
+<form action="/edit/$cd.getId()/update" method="post">
+  <div class="form-group">
+    <label for="title">CD Title:</label>
+    <input id="title" name="title" type="text" value="$cd.getTitle()">
+  </div>
+  #if ($cd.getArtist())
+  <div class="form-group">
+    <label for="artist">Artist:</label>
+    <input id="artist" name="artist" type="text" value="$cd.getArtist()">
+  </div>
+  #else
+  <div class="form-group">
+    <label for="artist">Artist:</label>
+    <input id="artist" name="artist" type="text">
+  </div>
+  #end
+  <button type="submit" class="btn btn-default">Save Changes</button>
+</form>

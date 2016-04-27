@@ -1,0 +1,14 @@
+<h1>CD Organizer</h1>
+<h2>Artists</h2>
+
+#if ($cds)
+  <ul>
+    #foreach ($artist in $artists)
+      <li><a href="/artistAlbums/$artist">$artist</a></li>
+    #end
+  </ul>
+#else
+  <p>No CDs!</p>
+#end
+
+<a href="/">Go Back</a>

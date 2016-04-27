@@ -1,16 +1,23 @@
-<h1>Square finder</h1>
-<h3>Enter the length and width of a rectangle and I will tell you if it's a square!</h3>
+<h1>CD Organizer</h1>
 
-<form action='/rectangle'>
-  <div class="form-group">
-    <label for="length">Length</label>
-    <input id="length" name="length" class="form-control" type="text">
-  </div>
+#if ($cds)
+  <ul>
+    #foreach ($cd in $cds)
+      <li><a href="/edit/$cd.getId()">$cd.getTitle()</a></li>
+    #end
+  </ul>
+#else
+  <p>No CDs!</p>
+#end
 
-  <div class="form-group">
-    <label for="width">Width</label>
-    <input id="width" name="width" class="form-control" type="text">
-  </div>
+<p>Add a new CD:</p>
 
-  <button type="submit" class="btn">Go!</button>
+<form action="/cds" method="post">
+  <label for="title">CD Title</label>
+  <input id="title" name="title" type="text">
+
+  <button type="submit" class="btn btn-default">Add CD</button>
 </form>
+
+<br>
+<a href="/artists">See list of artists</a>

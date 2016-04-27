@@ -1,0 +1,16 @@
+<h1>CD Organizer</h1>
+<h2>$artistName</h2>
+
+#if ($cds)
+  <ul>
+    #foreach ($cd in $cds)
+      #if ($cd.getArtist().equals($artistName))
+        <li><a href="/edit/$cd.getId()">$cd.getTitle()</a></li>
+      #end
+    #end
+  </ul>
+#else
+  <p>No CDs!</p>
+#end
+
+<a href="/">Go Back</a>
